@@ -19,12 +19,17 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             Log.d("msg", "收到一個訊息");
+            String str=msg.getData().getString("HAHA");
+            Log.d("msg", "str:"+str);
         }
     };
 
     public void click1(View v)
     {
         Message msg=new Message();
+        Bundle bundle=new Bundle();
+        bundle.putString("HAHA","HappyHat");
+        msg.setData(bundle);
         handler.sendMessage(msg);
     }
 }
